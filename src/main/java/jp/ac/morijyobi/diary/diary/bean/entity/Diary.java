@@ -3,6 +3,7 @@ package jp.ac.morijyobi.diary.diary.bean.entity;
 import java.time.LocalDate;
 
 public class Diary {
+    // Mapperの自動採番時にsetterが使われるため、変数にしている
     private int id;
     private final String title;
     private final String content;
