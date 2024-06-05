@@ -24,10 +24,8 @@ public class CreateDiaryController {
     }
 
     @GetMapping("")
-    public String get(
-            @RequestParam LocalDate currentDate,
-            final Model model) {
-        final var createDiaryInput = new CreateDiaryInput("", "", currentDate);
+    public String get(final Model model) {
+        final var createDiaryInput = new CreateDiaryInput("", "", LocalDate.now());
 
         model.addAttribute("createDiaryInput", createDiaryInput);
         return "create";
