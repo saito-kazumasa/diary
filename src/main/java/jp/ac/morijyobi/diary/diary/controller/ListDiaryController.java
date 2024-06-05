@@ -14,10 +14,10 @@ import java.util.List;
 
 @Controller
 @RequestMapping({"/", "/index", "/list"})
-public class ListController {
+public class ListDiaryController {
     private final IReadDiaryService readDiaryService;
 
-    public ListController(final IReadDiaryService readDiaryService) {
+    public ListDiaryController(final IReadDiaryService readDiaryService) {
         this.readDiaryService = readDiaryService;
     }
 

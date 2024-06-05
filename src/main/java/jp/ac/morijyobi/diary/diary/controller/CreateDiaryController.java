@@ -1,6 +1,6 @@
 package jp.ac.morijyobi.diary.diary.controller;
 
-import jp.ac.morijyobi.diary.diary.bean.form.CreateDiaryForm;
+import jp.ac.morijyobi.diary.diary.bean.input.CreateDiaryInput;
 import jp.ac.morijyobi.diary.diary.service.ICreateDiaryService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,22 +27,23 @@ public class CreateDiaryController {
     public String get(
             @RequestParam LocalDate currentDate,
             final Model model) {
-        final var createDiaryForm = new CreateDiaryForm("", "", currentDate);
-        model.addAttribute("createDiaryForm", createDiaryForm);
+        final var createDiaryInput = new CreateDiaryInput("", "", currentDate);
+
+        model.addAttribute("createDiaryInput", createDiaryInput);
         return "create";
     }
 
     @PostMapping("")
     public String post(
-            final @Validated CreateDiaryForm createDiaryForm,
+            final @Validated CreateDiaryInput createDiaryInput,
             final BindingResult bindingResult,
             final RedirectAttributes redirectAttributes) {
         if (bindingResult.hasErrors()) return "create";
 
-        createDiaryService.execute(createDiaryForm);
-        redirectAttributes.addAttribute("year", createDiaryForm.date().getYear());
-        redirectAttributes.addAttribute("monthValue", createDiaryForm.date().getMonthValue());
+        createDiaryService.execute(createDiaryInput);
 
+        redirectAttributes.addAttribute("year", createDiaryInput.date().getYear());
+        redirectAttributes.addAttribute("monthValue", createDiaryInput.date().getMonthValue());
         return "redirect:/list";
     }
 }

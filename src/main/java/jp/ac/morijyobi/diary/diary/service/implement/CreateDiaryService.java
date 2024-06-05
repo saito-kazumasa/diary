@@ -1,7 +1,6 @@
 package jp.ac.morijyobi.diary.diary.service.implement;
 
-import jp.ac.morijyobi.diary.diary.bean.entity.Diary;
-import jp.ac.morijyobi.diary.diary.bean.form.CreateDiaryForm;
+import jp.ac.morijyobi.diary.diary.bean.input.CreateDiaryInput;
 import jp.ac.morijyobi.diary.diary.mapper.IDiaryMapper;
 import jp.ac.morijyobi.diary.diary.service.ICreateDiaryService;
 import org.springframework.stereotype.Service;
@@ -15,9 +14,8 @@ public class CreateDiaryService implements ICreateDiaryService {
     }
 
     @Override
-    public Diary execute(final CreateDiaryForm createDiaryForm) {
-        final var diary = createDiaryForm.toDiary();
+    public void execute(final CreateDiaryInput createDiaryInput) {
+        final var diary = createDiaryInput.toDiary();
         diaryMapper.insert(diary);
-        return diary;
     }
 }

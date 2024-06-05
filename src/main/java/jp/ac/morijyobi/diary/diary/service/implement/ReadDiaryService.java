@@ -17,6 +17,11 @@ public class ReadDiaryService implements IReadDiaryService {
     }
 
     @Override
+    public Diary executeById(final int id) {
+        return diaryMapper.selectById(id);
+    }
+
+    @Override
     public List<Diary> executeByYearAndMonth(final LocalDate date) {
         final var startDate = LocalDate.of(date.getYear(), date.getMonth(), 1);
         final var endDate = LocalDate.of(date.getYear(), date.getMonth(), date.lengthOfMonth());

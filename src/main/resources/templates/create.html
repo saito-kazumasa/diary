@@ -7,7 +7,7 @@
 <body>
 <header th:include="components/header-component :: header-component"></header>
 
-<main th:object="${createDiaryForm}">
+<main th:object="${createDiaryInput}">
     <a th:href="@{/list(year=*{date.getYear()}, monthValue=*{date.getMonthValue()})}">
         &lt;&lt;&nbsp;キャンセル
     </a>

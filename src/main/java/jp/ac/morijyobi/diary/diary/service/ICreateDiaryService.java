@@ -1,8 +1,7 @@
 package jp.ac.morijyobi.diary.diary.service;
 
-import jp.ac.morijyobi.diary.diary.bean.entity.Diary;
-import jp.ac.morijyobi.diary.diary.bean.form.CreateDiaryForm;
+import jp.ac.morijyobi.diary.diary.bean.input.CreateDiaryInput;
 
 public interface ICreateDiaryService {
-    public Diary execute(final CreateDiaryForm createDiaryForm);
+    public void execute(final CreateDiaryInput diaryForm);
 }
