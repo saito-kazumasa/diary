@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head th:include="components/head-component :: head-component" />
+<head>
+    <title>日記 | 一覧</title>
+</head>
+<body>
+    <header th:include="components/header-component :: header-component"></header>
+    <main>
+        <form class="mb-4" th:action="@{/list}" method="post" th:object="${currentDate}">
+            <div class="input-group">
+                <input type="number"
+                       class="form-control"
+                       placeholder="0000"
+                       aria-label="year"
+                       th:field="*{year}">
+                <span class="input-group-text">年</span>
+                <input type="number"
+                       class="form-control"
+                       placeholder="00"
+                       aria-label="month"
+                       th:field="*{monthValue}">
+                <span class="input-group-text">月</span>
+                <button type="submit" class="btn btn-outline-secondary">検索</button>
+            </div>
+        </form>
+
+        <table class="table table-hover">
+            <tr>
+                <th colspan="2">
+                    <div class="d-grid gap-2">
+                        <a th:href="@{/create(currentDate=*{currentDate})}" class="btn btn-primary">+</a>
+                    </div>
+                </th>
+            </tr>
+            <tr th:each="diary : ${diaries}">
+                    <td class="w-25" th:text="${diary.date()}"></td>
+                    <td th:text="${diary.title()}"></td>
+            </tr>
+        </table>
+    </main>
+</body>
+</html>
