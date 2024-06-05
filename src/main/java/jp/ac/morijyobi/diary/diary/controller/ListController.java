@@ -24,7 +24,7 @@ public class ListController {
     @GetMapping("")
     public String get(final Model model) {
         final var currentDate = LocalDate.now();
-        List<Diary> diaries = readDiaryService.executeByYearAndMonth(currentDate);
+        final List<Diary> diaries = readDiaryService.executeByYearAndMonth(currentDate);
 
         model.addAttribute("currentDate", currentDate);
         model.addAttribute("diaries", diaries);
@@ -37,7 +37,7 @@ public class ListController {
             final @RequestParam int monthValue,
             final Model model) {
         final var currentDate = LocalDate.of(year, monthValue, 1);
-        List<Diary> diaries = readDiaryService.executeByYearAndMonth(currentDate);
+        final List<Diary> diaries = readDiaryService.executeByYearAndMonth(currentDate);
 
         model.addAttribute("currentDate", currentDate);
         model.addAttribute("diaries", diaries);
@@ -50,7 +50,7 @@ public class ListController {
             final @RequestParam int monthValue,
             final Model model) {
         final var currentDate = LocalDate.of(year, monthValue, 1);
-        List<Diary> diaries = readDiaryService.executeByYearAndMonth(currentDate);
+        final List<Diary> diaries = readDiaryService.executeByYearAndMonth(currentDate);
 
         model.addAttribute("currentDate", currentDate);
         model.addAttribute("diaries", diaries);

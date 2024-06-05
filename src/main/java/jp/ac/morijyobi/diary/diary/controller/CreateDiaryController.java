@@ -36,7 +36,6 @@ public class CreateDiaryController {
     public String post(
             final @Validated CreateDiaryForm createDiaryForm,
             final BindingResult bindingResult,
-            final Model model,
             final RedirectAttributes redirectAttributes) {
         if (bindingResult.hasErrors()) return "create";
 

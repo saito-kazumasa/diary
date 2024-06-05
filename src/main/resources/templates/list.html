@@ -29,13 +29,13 @@
             <tr>
                 <th colspan="2">
                     <div class="d-grid gap-2">
-                        <a th:href="@{/create(currentDate=*{currentDate})}" class="btn btn-primary">+</a>
+                        <a th:href="@{/create(currentDate=*{currentDate})}" class="btn btn-outline-primary">+</a>
                     </div>
                 </th>
             </tr>
             <tr th:each="diary : ${diaries}">
-                    <td class="w-25" th:text="${diary.date()}"></td>
-                    <td th:text="${diary.title()}"></td>
+                    <td class="w-25" th:text="${diary.date}"></td>
+                    <td th:text="${diary.title}"></td>
             </tr>
         </table>
     </main>
