@@ -17,12 +17,12 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping("/detail")
-public class DetailController {
+public class DetailDiaryController {
     private final IReadDiaryService readDiaryService;
     private final IUpdateDiaryService updateDiaryService;
     private final IDeleteDiaryService deleteDiaryService;
 
-    public DetailController(
+    public DetailDiaryController(
             final IReadDiaryService readDiaryService,
             final IUpdateDiaryService updateDiaryService,
             final IDeleteDiaryService deleteDiaryService) {
